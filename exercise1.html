@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head><title>Hello Javascript</title></head> 
+    <body>
+        <form>
+            Number1:<input type="text" name="number1" id="no1"><br><br>
+            Number2:<input type="text" name="number2" id="no2"><br><br>
+            <button type="button" onclick="choose()">Click me</button>
+        </form>
+        <label id="result"></label>
+        <script>
+            function choose(){
+                var n1=document.getElementById("no1").value;
+                var n2=document.getElementById("no2").value;
+                for(var n=n1;n<=n2;n++){
+                    if(n==0){
+                        document.getElementById("result").innerHTML+=n+" "+"is even number."+"<br>";
+                    }
+                    else if(n%2==0){
+                        document.getElementById("result").innerHTML+=n+" "+"is even number."+"<br>";
+                    }   
+                    else{
+                        document.getElementById("result").innerHTML+=n+" "+"is odd number."+"<br>";
+                    }
+                }
+            }
+        </script>
+    </body> 
+</html>
