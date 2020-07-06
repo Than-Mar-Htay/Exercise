@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Java Script</title>
+    </head>
+    <body>
+        <script>
+            function add(){
+                var n1=document.getElementById('no1').value;
+                var n2=document.getElementById('no2').value;
+                var res=parseInt(n1)+parseInt(n2);
+                document.getElementById('Result').value=res;
+            }
+            function sub(){
+                var n1=document.getElementById('no1').value;
+                var n2=document.getElementById('no2').value;
+                var res=parseInt(n1)-parseInt(n2);
+                document.getElementById('Result').value=res;
+            }
+            function mul(){
+                var n1=document.getElementById('no1').value;
+                var n2=document.getElementById('no2').value;
+                var res=parseInt(n1)*parseInt(n2);
+                document.getElementById('Result').value=res;
+            }
+            function div(){
+                var n1=document.getElementById('no1').value;
+                var n2=document.getElementById('no2').value;
+                var res=parseInt(n1)/parseInt(n2);
+                document.getElementById('Result').value=res;
+            }
+            function reset(){
+                document.getElementById("reset").reset();
+            }
+        </script>
+        <form id="reset">
+            Number1:<input type="text" name="number1" id="no1"><br><br>
+            Number2:<input type="text" name="Number2" id="no2"><br><br>
+            Result:<input type="text" name="result" id="Result">
+        </form><br><br>
+        <button type="button" onclick="add()">+</button>
+        <button type="button" onclick="sub()">-</button>
+        <button type="button" onclick="mul()">*</button>
+        <button type="button" onclick="div()">/</button>
+        <button type="button" onclick="reset()">Reset</button><br><br>
+    </body>
+</html>
