@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <h1>Today Task</h1>
+        Task Name:<input type="text" placeholder="enter task" id="tas"><br><br>
+        <button type="button" onclick="addtask()">Add</button><br><br>
+        <p>Task List</p>
+        <div id="result">
+
+        </div>
+        <script>
+            function addtask(){
+                var tasklist=[];
+                var task=document.getElementById("tas").value;
+                var p=document.createElement("p");
+                var button=document.createElement("button");
+                button.setAttribute("class","fa fa-remove");
+                button.style.float="right";
+                button.style.color="red";
+                p.style.border="1px solid red";
+                p.style.height="30px";
+                p.appendChild(document.createTextNode(task));
+                var input=document.getElementById("result");
+                input.appendChild(p);
+                p.appendChild(button);
+                button.addEventListener("click",myFunction);
+                function myFunction(){
+                    input.removeChild(p);
+                }
+            }
+        </script>
+    </body>
+</html>
