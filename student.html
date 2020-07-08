@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .main1{
+                width:20%;
+                height: 150px;
+                float: left;
+                margin-left: 100px;
+                padding-left: 100px;
+                padding-top: 20px;
+            }
+            .main1::after{
+                clear: both;
+                content: "";
+                display: table;
+            }
+            .main2{
+                width: 30%;
+                height: 170px;
+                float:right;
+                margin-right: 400px;
+            }
+            .main{
+                width: 100%;
+                height:200px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+        <div class="main1">
+            <input type="text" placeholder="Name" id="na"><br><br>
+            <input type="text" placeholder="Phone" id="ph"><br><br>
+            <input type="text" placeholder="Email" id="em"><br><br>
+            <input type="text" placeholder="year" id="y"><br><br>
+        </div>
+        <div class="main2">
+            <input type="text" placeholder="Address" id="add"><br><br>
+            <input type="radio" name="gender" value="male">
+            <label>Male</label>&nbsp
+            <input type="radio" name="gender" value="female">
+            <label>Female</label><br><br>
+            <input type="checkbox" name="subject" value="5O1">
+            <label>5O1</label>&nbsp
+            <input type="checkbox" name="subject" value="5O2">
+            <label>5O2</label>&nbsp
+            <input type="checkbox" name="subject" value="5O3">
+            <label>5O3</label><br><br>
+            <button type="button" onclick="information()">Save</button>
+        </div>
+        </div>
+            <table id="tab">
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Year</th>
+                    <th>Address</th>
+                    <th>Gender</th>
+                    <th>Subject</th>
+                </tr>
+            </table>
+        <script>
+            function information(){
+                var name=document.getElementById("na").value;
+                var phone=document.getElementById("ph").value;
+                var email=document.getElementById("em").value;
+                var year=document.getElementById("y").value;
+                var address=document.getElementById("add").value;
+
+                var radiovalue="";
+                var radio=document.getElementsByName('gender');
+                for(i = 0; i < radio.length; i++) { 
+                    if(radio[i].checked) 
+                    radiovalue=radio[i].value; 
+                } 
+                var checkvalue="";
+                var check=document.getElementsByName('subject');
+                for(i = 0; i < check.length; i++) { 
+                    if(check[i].checked) 
+                    checkvalue+=check[i].value; 
+                } 
+                var tb=document.getElementById("tab");
+                var row=document.createElement("tr");
+                tb.appendChild(row);
+                var addItem=document.createElement("td");
+                var res1=document.createTextNode(name);
+                addItem.appendChild(res1);
+                row.appendChild(addItem);
+
+                var addItem1=document.createElement("td");
+                var res2=document.createTextNode(phone);
+                addItem1.appendChild(res2);
+                row.appendChild(addItem1);
+
+                var addItem2=document.createElement("td");
+                var res3=document.createTextNode(email);
+                addItem2.appendChild(res3);
+                row.appendChild(addItem2);
+
+                var addItem3=document.createElement("td");
+                var res4=document.createTextNode(year);
+                addItem3.appendChild(res4);
+                row.appendChild(addItem3);
+
+                var addItem4=document.createElement("td");
+                var res5=document.createTextNode(address);
+                addItem4.appendChild(res5);
+                row.appendChild(addItem4);
+
+                var addItem5=document.createElement("td");
+                var res6=document.createTextNode(radiovalue);
+                addItem5.appendChild(res6);
+                row.appendChild(addItem5);
+
+                var addItem6=document.createElement("td");
+                var res7=document.createTextNode(checkvalue);
+                addItem6.appendChild(res7);
+                row.appendChild(addItem6);      
+            }
+        </script>
+    </body>
+</html>
