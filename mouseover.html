@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .image{
+                width:100%;
+                height:100px;
+                display: flex;
+                margin-top: 30px;
+                margin-left: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="image">
+            <img src="selena-gomez-2017.jpeg" width="100px" onmouseover="photochange1()">
+            <img src="justin bieber.jpg" width="100px" style="padding-left: 20px;" onmouseover="photochange2()">
+            <img src="wutt.jpg" width="100px" style="padding-left: 20px;" onmouseover="photochange3()">
+            <img src="thazin.jpg" width="100px" style="padding-left: 20px;" onmouseover="photochange4()">
+            <img src="thazin htoo.jpg" width="100px" style="padding-left: 20px;" onmouseover="photochange5()">
+        </div>
+        <img src="sai.jpg" style="padding-left: 20px;margin-top: 30px;" id="img">
+        <script>
+            var image=document.getElementById("img");
+            function photochange1(){
+                image.setAttribute("src","selena-gomez-2017.jpeg");
+            }
+            function photochange2(){
+                image.setAttribute("src","justin bieber.jpg");
+            }
+            function photochange3(){
+                image.setAttribute("src","wutt.jpg");
+            }
+            function photochange4(){
+                image.setAttribute("src","thazin.jpg");
+            }
+            function photochange5(){
+                image.setAttribute("src","thazin htoo.jpg");
+            }
+        </script>
+    </body>
+</html>
