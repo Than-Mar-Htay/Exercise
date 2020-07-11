@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script>
+            var amount=0;
+            var title;
+            var examount=0;
+            var total=0;
+            var result=0;
+            $(document).ready(function(){
+                $("#calculate").click(function(){
+                    amount+=parseInt($("#amount").val());
+                    $("#budget").html("<label><h3>$"+amount+"</h3></label>");
+                    $("#balance").html("<label><h3>$"+amount+"</h3></label>");
+                });
+            });
+            $(document).ready(function(){
+                $("#add").click(function(){
+                    title=$("#expense").val();
+                    $("#extitle").append("<label>_"+title+"</tile><br>");
+
+                    examount=parseInt($("#examount").val());
+                    $("#evalue").append("<label>"+examount+"</lable>")  
+                    $("#expValue").append("<label>$"+examount+"</label>"+"<br>");
+                   // $("#edit").append('<i class="fa fa-edit" style="font-size:24px; color:red;"></i>');
+                    //$("#edit").append('<i class="fa fa-trash-o" style="font-size:24px;color:red;"></i>');
+                    total+=examount;
+                    $("#evalue").html("<h3>$"+total+"</h3>");
+                    result=amount-total;
+                    $("#balance").html("<h3>$"+result+"</h3>");
+                    var c1=$("<i></i>").addClass("fa fa-edit");
+                    c1.css({"font-size":"15px","color":"lightblue"});
+                    var c2=$("<i></i>").addClass("fa fa-trash");
+                    c2.css({"font-size":"15px","color":"red"});
+                    $("#edit").append(c1,c2);
+                    $("#edit").append("<br>");
+                });
+            });
+        </script>
+        <style>
+            .main{
+                border:1px solid black;
+                background-color:whitesmoke;
+                width:70%;
+                height:500px;
+                margin: 60px;
+            }
+            .main1{
+                float: left;
+                width:400px;
+                height:500px;
+            }
+            .main1::after{
+                clear: both;
+                content: "";
+                display: table;
+            }
+            .main2{
+                float:right;
+                width:500px;
+                height:500px;
+            }
+            .total{
+                border:1px solid green;
+                width:300px;
+                height:150px;
+                margin:40px;
+                padding-left:10px;
+            }
+            .spend{
+                border:1px solid red;
+                width:300px;
+                height:200px;
+                margin:40px;
+                padding-left: 10px;
+            }
+            .icon{
+                width:500px;
+                height: 170px;
+                margin-top:60px;
+                display: flex;
+            }
+            .expenses{
+                width:500px;
+                height: 200px;
+                margin-top:50px;
+                display: flex;
+            }
+    </style>
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="main1">
+                <h3 style="padding-top: 0px;padding-left: 30px;">BUDGET APP</h3>
+                <div class="total">
+                    <p>Please Enter Your Budget</p>
+                    <input type="text" name="amount1" id="amount"><br><br>
+                    <button type="button" id="calculate">Calculate</button>
+                </div>
+                <div class="spend">
+                    <p>Please Enter Your Expenses</p>
+                    <input type="text" name="expense1" id="expense">
+                    <p>Please Enter Your Expenses Amount</p>
+                    <input type="text" name="amount1" id="examount"><br><br>
+                    <button type="button" id="add">Add Expenses</button>
+                </div>
+            </div>
+            <div class="main2">
+                <div class="icon">
+                    <div><h2>BUDGET</h2><i class="fa fa-money" style="font-size:48px;color:cornflowerblue"></i><p id="budget"></p></div>
+                    <div style="padding-left: 20px;"><h2>EXPENSES</h2><i class="fa fa-credit-card" style="font-size:48px;color:cornflowerblue"></i><p id="evalue"></p></div>
+                    <div style="padding-left: 20px;"><h2>BALANCE</h2><i class="fa fa-dollar" style="font-size:48px;color:cornflowerblue"></i><p id="balance"></p></div>
+                </div>
+                <div class="expenses">
+                    <div><p>Expense Title</p><br><p id="extitle"></p></div>
+                    <div style="padding-left: 40px;"><p>Expense Values</p><br><p id="expValue"></p></div>
+                    <div style="padding-left:40px;"><p></p><br><br><br><p id="edit"></p></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
