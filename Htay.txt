@@ -1,0 +1,158 @@
+mysql> select * from Team;
++-----+-------------------+-------------+
+| Tid | name              | foundeddate |
++-----+-------------------+-------------+
+|   1 | Manchester United | 1880-07-12  |
+|   2 | Liverpool         | 1892-06-15  |
+|   3 | Everton           | 1992-02-20  |
+|   4 | Chelsea           | 1905-03-10  |
+|   5 | Arsenal           | 1886-02-19  |
+|   6 | Real Madrid       | 1902-03-06  |
+|   7 | Barcelona         | 1899-11-29  |
+|   8 | Juventus          | 1897-11-01  |
+|   9 | La Liga           | 1929-10-05  |
+|  10 | Man City          | 1880-03-09  |
++-----+-------------------+-------------+
+10 rows in set (0.00 sec)
+mysql> select * from Player;
++-----+-------------------+---------+------+---------+--------+--------+
+| Pid | name              | jersyno | age  | salary  | teamId | height |
++-----+-------------------+---------+------+---------+--------+--------+
+|   1 | Cristiano Ronaldo |       7 |   35 |  500000 |      6 | 6.5    |
+|   2 | Paul Pogba        |       5 |   34 |  550000 |      1 | 5.5    |
+|   3 | Bruno Fernandes   |       1 |   36 |  540000 |      1 | 5.7    |
+|   4 | Marcus Rashford   |       1 |   32 |  600000 |      1 | 5.9    |
+|   5 | Mohamed Salah     |       8 |   30 |  700000 |      2 | 6      |
+|   6 | Sadio Mane        |       3 |   29 |  750000 |      2 | 6.2    |
+|   7 | Roberto Firmino   |      10 |   36 |  760000 |      2 | 6.3    |
+|   8 | Alisson Becker    |      16 |   29 |  770000 |      2 | 6.8    |
+|   9 | Theo Walcott      |      28 |   31 |  500000 |      3 | 6.1    |
+|  10 | Jonjoe Kenny      |      45 |   40 |  800000 |      3 | 6      |
+|  11 | Cenk Tosun        |      20 |   29 | 7200000 |      3 | 6.9    |
+|  12 | Tom Davies        |      28 |   31 | 7100000 |      3 | 7      |
+|  13 | Timo Werner       |      26 |   30 | 6000000 |      4 | 6.1    |
+|  14 | Willian           |      23 |   29 | 6600000 |      4 | 6.7    |
+|  15 | Tammy Abraham     |      27 |   28 | 6300000 |      4 | 6.3    |
+|  16 | Mesut Ozil        |      30 |   24 | 6700000 |      5 | 6.9    |
+|  17 | David Luiz        |      18 |   22 | 6300000 |      5 | 6.1    |
+|  18 | Pablo Mari        |      48 |   23 | 6100000 |      5 | 6.6    |
+|  19 | Eden Hazard       |      53 |   25 | 6100000 |      6 | 5.9    |
+|  20 | Marco Asensio     |      42 |   26 | 6500000 |      6 | 5.6    |
+|  21 | Lionel Messi      |      43 |   24 | 6700000 |      7 | 5.8    |
+|  22 | Ansu Fati         |       5 |   27 | 5000000 |      7 | 5.5    |
+|  23 | Paulo Dybala      |       6 |   26 | 5800000 |      8 | 5.8    |
+|  24 | Ainsley           |       6 |   22 | 6600000 |      9 | 6.5    |
+|  25 | Tyreece           |      10 |   20 | 6900000 |     10 | 6.4    |
++-----+-------------------+---------+------+---------+--------+--------+
+25 rows in set (0.00 sec)
+mysql> select * from Team where Tid=1;
++-----+-------------------+-------------+
+| Tid | name              | foundeddate |
++-----+-------------------+-------------+
+|   1 | Manchester United | 1880-07-12  |
++-----+-------------------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select * from Team where Tid=2;
++-----+-----------+-------------+
+| Tid | name      | foundeddate |
++-----+-----------+-------------+
+|   2 | Liverpool | 1892-06-15  |
++-----+-----------+-------------+
+1 row in set (0.00 sec)
+mysql> select * from Player where salary>500000;
++-----+-----------------+---------+------+---------+--------+--------+
+| Pid | name            | jersyno | age  | salary  | teamId | height |
++-----+-----------------+---------+------+---------+--------+--------+
+|   2 | Paul Pogba      |       5 |   34 |  550000 |      1 | 5.5    |
+|   3 | Bruno Fernandes |       1 |   36 |  540000 |      1 | 5.7    |
+|   4 | Marcus Rashford |       1 |   32 |  600000 |      1 | 5.9    |
+|   5 | Mohamed Salah   |       8 |   30 |  700000 |      2 | 6      |
+|   6 | Sadio Mane      |       3 |   29 |  750000 |      2 | 6.2    |
+|   7 | Roberto Firmino |      10 |   36 |  760000 |      2 | 6.3    |
+|   8 | Alisson Becker  |      16 |   29 |  770000 |      2 | 6.8    |
+|  10 | Jonjoe Kenny    |      45 |   40 |  800000 |      3 | 6      |
+|  11 | Cenk Tosun      |      20 |   29 | 7200000 |      3 | 6.9    |
+|  12 | Tom Davies      |      28 |   31 | 7100000 |      3 | 7      |
+|  13 | Timo Werner     |      26 |   30 | 6000000 |      4 | 6.1    |
+|  14 | Willian         |      23 |   29 | 6600000 |      4 | 6.7    |
+|  15 | Tammy Abraham   |      27 |   28 | 6300000 |      4 | 6.3    |
+|  16 | Mesut Ozil      |      30 |   24 | 6700000 |      5 | 6.9    |
+|  17 | David Luiz      |      18 |   22 | 6300000 |      5 | 6.1    |
+|  18 | Pablo Mari      |      48 |   23 | 6100000 |      5 | 6.6    |
+|  19 | Eden Hazard     |      53 |   25 | 6100000 |      6 | 5.9    |
+|  20 | Marco Asensio   |      42 |   26 | 6500000 |      6 | 5.6    |
+|  21 | Lionel Messi    |      43 |   24 | 6700000 |      7 | 5.8    |
+|  22 | Ansu Fati       |       5 |   27 | 5000000 |      7 | 5.5    |
+|  23 | Paulo Dybala    |       6 |   26 | 5800000 |      8 | 5.8    |
+|  24 | Ainsley         |       6 |   22 | 6600000 |      9 | 6.5    |
+|  25 | Tyreece         |      10 |   20 | 6900000 |     10 | 6.4    |
++-----+-----------------+---------+------+---------+--------+--------+
+23 rows in set (0.03 sec)
+mysql> select name,(select sum(salary) from Player where Player.teamId=Team.Tid)as salary from Team;
++-------------------+----------+
+| name              | salary   |
++-------------------+----------+
+| Manchester United |  1690000 |
+| Liverpool         |  2980000 |
+| Everton           | 15600000 |
+| Chelsea           | 18900000 |
+| Arsenal           | 19100000 |
+| Real Madrid       | 13100000 |
+| Barcelona         | 11700000 |
+| Juventus          |  5800000 |
+| La Liga           |  6600000 |
+| Man City          |  6900000 |
++-------------------+----------+
+10 rows in set (0.09 sec)
+
+mysql> select * from Player where height<5;
+Empty set (0.06 sec)
+
+mysql> select name,(select avg(salary) from Player where Player.teamId=Team.Tid) as average from Team;
++-------------------+--------------+
+| name              | average      |
++-------------------+--------------+
+| Manchester United |  563333.3333 |
+| Liverpool         |  745000.0000 |
+| Everton           | 3900000.0000 |
+| Chelsea           | 6300000.0000 |
+| Arsenal           | 6366666.6667 |
+| Real Madrid       | 4366666.6667 |
+| Barcelona         | 5850000.0000 |
+| Juventus          | 5800000.0000 |
+| La Liga           | 6600000.0000 |
+| Man City          | 6900000.0000 |
++-------------------+--------------+
+10 rows in set (0.00 sec)
+mysql> select name,salary from Player where salary in(select min(salary) from Player);
++-------------------+--------+
+| name              | salary |
++-------------------+--------+
+| Cristiano Ronaldo | 500000 |
+| Theo Walcott      | 500000 |
++-------------------+--------+
+2 rows in set (0.12 sec)
+
+mysql> select name,salary from Player where salary in(select max(salary) from Player);
++------------+---------+
+| name       | salary  |
++------------+---------+
+| Cenk Tosun | 7200000 |
++------------+---------+
+1 row in set (0.00 sec)
+
+mysql> select * from Player where age>30 and salary>200000;
++-----+-------------------+---------+------+---------+--------+--------+
+| Pid | name              | jersyno | age  | salary  | teamId | height |
++-----+-------------------+---------+------+---------+--------+--------+
+|   1 | Cristiano Ronaldo |       7 |   35 |  500000 |      6 | 6.5    |
+|   2 | Paul Pogba        |       5 |   34 |  550000 |      1 | 5.5    |
+|   3 | Bruno Fernandes   |       1 |   36 |  540000 |      1 | 5.7    |
+|   4 | Marcus Rashford   |       1 |   32 |  600000 |      1 | 5.9    |
+|   7 | Roberto Firmino   |      10 |   36 |  760000 |      2 | 6.3    |
+|   9 | Theo Walcott      |      28 |   31 |  500000 |      3 | 6.1    |
+|  10 | Jonjoe Kenny      |      45 |   40 |  800000 |      3 | 6      |
+|  12 | Tom Davies        |      28 |   31 | 7100000 |      3 | 7      |
++-----+-------------------+---------+------+---------+--------+--------+
+8 rows in set (0.00 sec)
