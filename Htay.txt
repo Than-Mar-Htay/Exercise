@@ -105,6 +105,22 @@ mysql> select team.name,sum(player.salary)as TotalSalary from player,team where 
 | Man City          |     6900000 |
 +-------------------+-------------+
 10 rows in set (0.00 sec)
+mysql> select team.name,count(player.name)as Count from team,player where player.teamId=team.Tid group by teamId;
++-------------------+-------+
+| name              | Count |
++-------------------+-------+
+| Manchester United |     3 |
+| Liverpool         |     4 |
+| Everton           |     4 |
+| Chelsea           |     3 |
+| Arsenal           |     3 |
+| Real Madrid       |     3 |
+| Barcelona         |     2 |
+| Juventus          |     1 |
+| La Liga           |     1 |
+| Man City          |     1 |
++-------------------+-------+
+10 rows in set (0.00 sec)
 
 mysql> select * from Player where height<5;
 Empty set (0.06 sec)
