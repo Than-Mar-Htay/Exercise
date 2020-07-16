@@ -1,0 +1,92 @@
+mysql> select * from Menu;
++----+--------+----------------+
+| id | name   | description    |
++----+--------+----------------+
+|  1 | Coffee | good           |
+|  2 | Noodle | very good      |
+|  3 | Juice  | delicious      |
+|  4 | Cake   | very delicious |
++----+--------+----------------+
+4 rows in set (0.07 sec)
+
+mysql> select * from Food;
++-----+-------------------------+-------+---------+
+| fid | name                    | price | menu_id |
++-----+-------------------------+-------+---------+
+|   1 | hot drink               | 1600  |       1 |
+|   2 | cold drink              | 1600  |       1 |
+|   3 | Shan                    | 2000  |       2 |
+|   4 | Monhinga                | 1900  |       2 |
+|   5 | fried noodle            | 1900  |       2 |
+|   6 | orange juice            | 1900  |       3 |
+|   7 | apple juice             | 2500  |       3 |
+|   8 | banana juice            | 2700  |       3 |
+|   9 | pineapple juice         | 3000  |       3 |
+|  10 | dragon fruit juice      | 4000  |       3 |
+|  11 | strawberry juice        | 1500  |       3 |
+|  12 | water-melon juice       | 3500  |       3 |
+|  13 | papaya juice            | 500   |       3 |
+|  14 | avocado juice           | 800   |       3 |
+|  15 | Sweet Potato Pecan Cake | 4000  |       4 |
+|  16 | Pumpkin Dump Cake       | 6000  |       4 |
+|  17 | Instant Pot Cheesecake  | 7000  |       4 |
+|  18 | New England Spider Cake | 9000  |       4 |
+|  19 | Chocolate Bumpy Cake    | 10000 |       4 |
+|  20 | Gooey Butter Cake       | 20000 |       4 |
++-----+-------------------------+-------+---------+
+20 rows in set (0.03 sec)
+mysql> select * from Orders;
++-----+------------+------+---------+-------+------------+
+| Oid | sale_date  | qty  | food_id | price | totalprice |
++-----+------------+------+---------+-------+------------+
+|   1 | 2018-02-13 |    3 |       1 | 1600  | 4800       |
+|   2 | 2018-02-20 |    3 |       2 | 1600  | 4800       |
+|   3 | 2019-12-03 |    5 |       3 | 2000  | 10000      |
+|   4 | 2020-03-12 |    6 |      14 | 800   | 4800       |
+|   5 | 2020-04-14 |    2 |      15 | 4000  | 8000       |
+|   6 | 2020-05-06 |    2 |       9 | 3000  | 6000       |
+|   7 | 2020-05-06 |    2 |      17 | 7000  | 14000      |
+|   8 | 2020-05-06 |    1 |       9 | 3000  | 6000       |
++-----+------------+------+---------+-------+------------+
+8 rows in set (0.03 sec)
+mysql> select Food.name,Orders.qty,Orders.totalprice from Food,Orders where Orders.food_id=Food.fid and Orders.qty in(select max(Orders.qty) as Qty from Orders);
++---------------+------+------------+
+| name          | qty  | totalprice |
++---------------+------+------------+
+| avocado juice |    6 | 4800       |
++---------------+------+------------+
+1 row in set (0.00 sec)
+
+mysql> select Food.name,Orders.qty,Orders.totalprice from Food,Orders where Orders.food_id=Food.fid and Orders.qty in(select min(Orders.qty) as Qty from Orders);
++-----------------+------+------------+
+| name            | qty  | totalprice |
++-----------------+------+------------+
+| pineapple juice |    1 | 6000       |
++-----------------+------+------------+
+1 row in set (0.00 sec)
+mysql> select sale_date,sum(Orders.totalprice) as Date from Orders group by Orders.sale_date;
++------------+-------+
+| sale_date  | Date  |
++------------+-------+
+| 2018-02-13 |  4800 |
+| 2018-02-20 |  4800 |
+| 2019-12-03 | 10000 |
+| 2020-03-12 |  4800 |
+| 2020-04-14 |  8000 |
+| 2020-05-06 | 26000 |
++------------+-------+
+6 rows in set (0.00 sec)
+mysql> select sale_date,totalprice from Orders where sale_date between '2018-02-13' and '2020-05-06';
++------------+------------+
+| sale_date  | totalprice |
++------------+------------+
+| 2018-02-13 | 4800       |
+| 2018-02-20 | 4800       |
+| 2019-12-03 | 10000      |
+| 2020-03-12 | 4800       |
+| 2020-04-14 | 8000       |
+| 2020-05-06 | 6000       |
+| 2020-05-06 | 14000      |
+| 2020-05-06 | 6000       |
++------------+------------+
+8 rows in set (0.08 sec)
