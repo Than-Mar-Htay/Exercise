@@ -89,22 +89,22 @@ mysql> select * from Player where salary>500000;
 |  25 | Tyreece         |      10 |   20 | 6900000 |     10 | 6.4    |
 +-----+-----------------+---------+------+---------+--------+--------+
 23 rows in set (0.03 sec)
-mysql> select name,(select sum(salary) from Player where Player.teamId=Team.Tid)as salary from Team;
-+-------------------+----------+
-| name              | salary   |
-+-------------------+----------+
-| Manchester United |  1690000 |
-| Liverpool         |  2980000 |
-| Everton           | 15600000 |
-| Chelsea           | 18900000 |
-| Arsenal           | 19100000 |
-| Real Madrid       | 13100000 |
-| Barcelona         | 11700000 |
-| Juventus          |  5800000 |
-| La Liga           |  6600000 |
-| Man City          |  6900000 |
-+-------------------+----------+
-10 rows in set (0.09 sec)
+mysql> select team.name,sum(player.salary)as TotalSalary from player,team where Team.Tid=Player.teamId group by teamId;
++-------------------+-------------+
+| name              | TotalSalary |
++-------------------+-------------+
+| Manchester United |     1690000 |
+| Liverpool         |     2980000 |
+| Everton           |    15600000 |
+| Chelsea           |    18900000 |
+| Arsenal           |    19100000 |
+| Real Madrid       |    13100000 |
+| Barcelona         |    11700000 |
+| Juventus          |     5800000 |
+| La Liga           |     6600000 |
+| Man City          |     6900000 |
++-------------------+-------------+
+10 rows in set (0.00 sec)
 
 mysql> select * from Player where height<5;
 Empty set (0.06 sec)
